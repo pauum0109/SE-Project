@@ -63,7 +63,7 @@ CREATE TABLE `Order` (
     OrderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     TotalAmount DECIMAL(10, 2),
     OrderStatus ENUM('Pending', 'Confirmed', 'Delivered', 'Canceled') DEFAULT 'Pending',
-    DeliveryType ENUM('Pickup', 'Standard Delivery', 'Express Delivery') DEFAULT 'Pickup',
+    DeliveryType ENUM('Pickup', 'Economy Delivery', 'Express Delivery') DEFAULT 'Pickup',
     DeliveryAddress TEXT,
     PaymentStatus ENUM('Paid', 'Unpaid') DEFAULT 'Unpaid',
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
