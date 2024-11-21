@@ -21,7 +21,9 @@ const Featured = () => {
             )}
             {/* TEXT CONTAINER */}
             <div className=" flex-1 flex flex-col items-center justify-center text-center gap-4">
-              <h1 className="text-xl font-bold uppercase xl:text-2xl 2xl:text-3xl">{item.title}</h1>
+              <h1 className="text-xl font-bold uppercase xl:text-2xl 2xl:text-3xl">
+                {item.title}
+              </h1>
               <span className="text-xl font-bold">${item.price}</span>
               <button className="bg-[#ff6868] text-white p-2 rounded-md">
                 Add to Cart

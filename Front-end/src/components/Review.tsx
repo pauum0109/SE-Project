@@ -1,8 +1,9 @@
 import React from "react";
+import Image from "next/image";
 
 const CustomerReviews = () => {
   return (
-    <div className="self-stretch h-[508px] px-[170px] py-[60px] flex-col justify-center items-center gap-[60px] flex">
+    <div className="self-stretch h-[508px] px-[170px] py-[60px] flex-col justify-center items-center flex">
       <div className="self-stretch h-24 flex-col justify-start items-center gap-6 flex">
         <div className="w-[520px] text-center text-black text-[40px] font-bold">
           Customer Reviews
@@ -14,14 +15,15 @@ const CustomerReviews = () => {
 
       <div className="self-stretch h-[232px] py-5 flex-col justify-center items-center gap-10 flex">
         <div className="flex gap-10">
-
           <div className="p-4 bg-black/5 rounded-md flex-col justify-start items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 relative bg-black/10 rounded-full overflow-hidden">
-                <img
-                  className="object-cover w-full h-full"
-                  src="/temporary/lisa.jpg" 
+                <Image
+                  src="/lisa.jpg"
                   alt="Lisa M."
+                  layout="fill"
+                  objectFit="cover"
+                  className="absolute"
                 />
               </div>
               <div className="flex flex-col">
@@ -39,10 +41,12 @@ const CustomerReviews = () => {
           <div className="p-4 bg-black/5 rounded-md flex-col justify-start items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 relative bg-[#cac9ce] rounded-full overflow-hidden">
-                <img
-                  className="object-cover w-full h-full"
-                  src="/temporary/Tom.jpg"
+                <Image
+                  src="/Tom.jpg"
                   alt="Tom S."
+                  layout="fill"
+                  objectFit="cover"
+                  className="absolute"
                 />
               </div>
               <div className="flex flex-col">
@@ -60,10 +64,12 @@ const CustomerReviews = () => {
           <div className="p-4 bg-black/5 rounded-md flex-col justify-start items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 relative bg-white rounded-full overflow-hidden">
-                <img
-                  className="object-cover w-full h-full"
-                  src="/temporary/anna.png" 
+                <Image
+                  src="/anna.png"
                   alt="Anna K."
+                  layout="fill"
+                  objectFit="cover"
+                  className="absolute"
                 />
               </div>
               <div className="flex flex-col">

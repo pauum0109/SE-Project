@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Left Column: Logo and Name */}
         <div className="flex justify-start gap-2">
-          <Link href="/"className="flex items-center">
+          <Link href="/" className="flex items-center">
             <span className="text-[#ff6868] text-[28px] font-medium">G</span>
             <span className="text-black text-[28px] font-medium">roup </span>
             <span className="text-[#ff6868] text-[28px] font-medium">ATE</span>
