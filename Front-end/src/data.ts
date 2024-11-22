@@ -13,7 +13,7 @@ export const featuredProducts: Products = [
   {
     id: 1,
     title: "Matcha Latte",
-    desc: "Ignite your taste buds with a fiery combination of spicy pepperoni, jalapeños, crushed red pepper flakes, and melted mozzarella cheese, delivering a kick with every bite.",
+    desc: "Indulge in the velvety smoothness of our matcha latte, a harmonious blend of creamy milk and vibrant green tea for a serene and energizing escape.",
     img: "/unnamed.jpg",
     price: 5,
     options: [
@@ -34,7 +34,7 @@ export const featuredProducts: Products = [
   {
     id: 2,
     title: "Milk Coffee",
-    desc: "Embark on a culinary journey with this Mediterranean-inspired creation, featuring zesty feta cheese, Kalamata olives, sun-dried tomatoes, and a sprinkle of oregano.",
+    desc: "Savor the rich, comforting embrace of our creamy milk coffee, a perfect blend of bold coffee and velvety milk for a delightful caffeine fix.",
     img: "/images (1).jfif",
     price: 3,
     options: [
@@ -76,7 +76,7 @@ export const featuredProducts: Products = [
   {
     id: 4,
     title: "Pesto Primavera",
-    desc: "A classic Italian delight featuring a thin, crispy crust, tangy tomato sauce, fresh mozzarella, and a medley of aromatic herbs topped with lettuce, tomatoes, and a dollop of tangy mayo.",
+    desc: "A vibrant symphony of fresh vegetables and creamy pesto sauce, a delightful dance of flavors for your palate.",
     img: "/temporary/p10.png",
     price: 11,
     options: [
@@ -139,7 +139,7 @@ export const featuredProducts: Products = [
   {
     id: 7,
     title: "Wings",
-    desc: "Experience pure cheesy bliss with a melty blend of mozzarella, cheddar, provolone, and Parmesan cheeses, creating a rich and indulgent pizza experience.",
+    desc: "Crispy, golden-brown chicken wings, tossed in your favorite flavor, a finger-licking good treat for any occasion.",
     img: "/wings.jpg",
     price: 12,
     options: [
@@ -160,7 +160,7 @@ export const featuredProducts: Products = [
   {
     id: 8,
     title: "Spicy Arrabbiata",
-    desc: "Experience pure cheesy bliss with a melty blend of mozzarella, cheddar, provolone, and Parmesan cheeses, creating a rich and indulgent pizza experience.",
+    desc: "A fiery blend of tomatoes, chili peppers, and garlic, creating a robust and flavorful sauce that will tantalize your taste buds.",
     img: "/temporary/p4.png",
     price: 12,
     options: [
@@ -202,13 +202,11 @@ export const featuredProducts: Products = [
 ];
 
 
-
-
 export const pizzas: Products = [
   {
     id: 1,
     title: "Matcha Latte",
-    desc: "Ignite your taste buds with a fiery combination of spicy pepperoni, jalapeños, crushed red pepper flakes, and melted mozzarella cheese, delivering a kick with every bite.",
+    desc: "Indulge in the velvety smoothness of our matcha latte, a harmonious blend of creamy milk and vibrant green tea for a serene and energizing escape.",
     img: "/unnamed.jpg",
     price: 5,
     options: [
@@ -229,7 +227,7 @@ export const pizzas: Products = [
   {
     id: 2,
     title: "Milk Coffee",
-    desc: "Embark on a culinary journey with this Mediterranean-inspired creation, featuring zesty feta cheese, Kalamata olives, sun-dried tomatoes, and a sprinkle of oregano.",
+    desc: "Savor the rich, comforting embrace of our creamy milk coffee, a perfect blend of bold coffee and velvety milk for a delightful caffeine fix.",
     img: "/images (1).jfif",
     price: 3,
     options: [
@@ -271,7 +269,7 @@ export const pizzas: Products = [
   {
     id: 4,
     title: "Pesto Primavera",
-    desc: "A classic Italian delight featuring a thin, crispy crust, tangy tomato sauce, fresh mozzarella, and a medley of aromatic herbs topped with lettuce, tomatoes, and a dollop of tangy mayo.",
+    desc: "A vibrant symphony of fresh vegetables and creamy pesto sauce, a delightful dance of flavors for your palate.",
     img: "/temporary/p10.png",
     price: 11,
     options: [
@@ -334,7 +332,7 @@ export const pizzas: Products = [
   {
     id: 7,
     title: "Wings",
-    desc: "Experience pure cheesy bliss with a melty blend of mozzarella, cheddar, provolone, and Parmesan cheeses, creating a rich and indulgent pizza experience.",
+    desc: "Crispy, golden-brown chicken wings, tossed in your favorite flavor, a finger-licking good treat for any occasion.",
     img: "/wings.jpg",
     price: 12,
     options: [
@@ -355,7 +353,7 @@ export const pizzas: Products = [
   {
     id: 8,
     title: "Spicy Arrabbiata",
-    desc: "Experience pure cheesy bliss with a melty blend of mozzarella, cheddar, provolone, and Parmesan cheeses, creating a rich and indulgent pizza experience.",
+    desc: "A fiery blend of tomatoes, chili peppers, and garlic, creating a robust and flavorful sauce that will tantalize your taste buds.",
     img: "/temporary/p4.png",
     price: 12,
     options: [
