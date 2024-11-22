@@ -1,23 +1,48 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/context/CartContext"; // Assuming useCart is a custom hook for managing cart state
 
 type Props = {
   price: number;
   id: number;
+  title: string; // Added title to props
+  img: string; // Added img to props
   options?: { title: string; additionalPrice: number }[];
 };
 
-const Price = ({ price, id, options }: Props) => {
+const Price = ({ price, id, title, img, options }: Props) => {
   const [total, setTotal] = useState(price);
   const [quantity, setQuantity] = useState(1);
   const [selected, setSelected] = useState(0);
+  const { addToCart } = useCart(); // Assuming addToCart is a function to update the cart
+  const router = useRouter(); // For navigation
 
   useEffect(() => {
     setTotal(
       quantity * (options ? price + options[selected].additionalPrice : price)
     );
   }, [quantity, selected, options, price]);
+
+  const handleAddToCart = () => {
+    if (typeof id === "number" && typeof price === "number") {
+      // Add to cart
+      addToCart({
+        id,
+        price: total, // Total price including quantity and options
+        quantity,
+        title, // Dynamically set the title
+        size: options ? options[selected].title : "Default Size", // Set size based on options
+        img, // Dynamically set the image
+      });
+
+      // Navigate to cart
+      router.push("/cart");
+    } else {
+      console.error("Invalid id or price values");
+    }
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -58,7 +83,10 @@ const Price = ({ price, id, options }: Props) => {
           </div>
         </div>
         {/* CART BUTTON */}
-        <button className="uppercase w-56 bg-red-500 text-white p-3 ring-1 ring-red-500">
+        <button
+          onClick={handleAddToCart}
+          className="uppercase w-56 bg-red-500 text-white p-3 ring-1 ring-red-500"
+        >
           Add to Cart
         </button>
       </div>
