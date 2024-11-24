@@ -1,59 +1,61 @@
-'use client';
+"use client";
 
-import { useParams } from 'next/navigation';
-import { pizzas } from "@/data";  // Ensure the correct import path
+import { useParams } from "next/navigation";
+import { pizzas } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useEffect, useState } from "react";
 
-// Define a type for the product
 interface Product {
   id: number;
   title: string;
   desc?: string;
   img?: string;
   price: number;
-  options?: { title: string; additionalPrice: number; }[];
+  options?: { title: string; additionalPrice: number }[];
 }
 
-// Function to filter products by category
 const filterProductsByCategory = (category: string): Product[] => {
-  // Categories for filtering
   const drinkTitles = ["Matcha Latte", "Milk Coffee", "Strawberry Milk Shake"];
   const appetizerTitles = ["Mozzarella Sticks", "Spicy Arrabbiata"];
-  const mainCourseTitles = ["Pesto Primavera", "Ramen", "Wings", "Jalapeño Fiesta"];
+  const mainCourseTitles = [
+    "Pesto Primavera",
+    "Ramen",
+    "Wings",
+    "Jalapeño Fiesta",
+  ];
 
-  // Filtering products based on category
   switch (category) {
     case "Drinks":
-      return pizzas.filter(product => drinkTitles.includes(product.title));
+      return pizzas.filter((product) => drinkTitles.includes(product.title));
     case "Appetizer":
-      return pizzas.filter(product => appetizerTitles.includes(product.title));
+      return pizzas.filter((product) =>
+        appetizerTitles.includes(product.title)
+      );
     case "maincourses":
-      return pizzas.filter(product => mainCourseTitles.includes(product.title));
+      return pizzas.filter((product) =>
+        mainCourseTitles.includes(product.title)
+      );
     default:
-      return []; // Return an empty array if the category does not match
+      return [];
   }
 };
 
 const CategoryPage = () => {
-  const { category } = useParams();  // Get the category from the URL parameter
+  const { category } = useParams();
   const [products, setProducts] = useState<Product[]>([]);
 
-  // Debugging: Log the category to ensure it's passed correctly
   useEffect(() => {
     console.log("Category from URL:", category);
 
-    // Check if category exists and is a valid string
-    if (category && typeof category === 'string') {
+    if (category && typeof category === "string") {
       const filtered = filterProductsByCategory(category);
-      console.log("Filtered Products:", filtered); // Log the filtered products for debugging
+      console.log("Filtered Products:", filtered);
       setProducts(filtered);
     } else {
-      // If category is invalid, set products to an empty array or handle the case appropriately
       setProducts([]);
     }
-  }, [category]); // Only rerun the effect when the category changes
+  }, [category]);
 
   return (
     <div className="flex flex-wrap text-red-500">
@@ -69,7 +71,7 @@ const CategoryPage = () => {
               <div className="relative h-[80%]">
                 <Image
                   src={img}
-                  alt={`Image of ${title}`}  // Alt text for accessibility
+                  alt={`Image of ${title}`}
                   fill
                   className="object-contain"
                   priority
@@ -83,7 +85,7 @@ const CategoryPage = () => {
               <h2 className="group-hover:hidden text-xl">${price}</h2>
               <button
                 className="hidden group-hover:block uppercase bg-red-500 text-white p-2 rounded-md"
-                title="Add to Cart"  // Improve accessibility with title attribute
+                title="Add to Cart"
               >
                 Add to Cart
               </button>
@@ -91,10 +93,12 @@ const CategoryPage = () => {
           </Link>
         ))
       ) : (
-        <p className="w-full text-center">No products found for the selected category.</p>
+        <p className="w-full text-center">
+          No products found for the selected category.
+        </p>
       )}
     </div>
   );
 };
 
-export default memo(CategoryPage);  // Memoizing the component to prevent unnecessary re-renders
+export default memo(CategoryPage);

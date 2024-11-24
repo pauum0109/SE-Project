@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useCart } from "@/context/CartContext"; // Assuming useCart is a custom hook for managing cart state
+import { useCart } from "@/context/CartContext";
 
 type Props = {
   price: number;
   id: number;
-  title: string; // Added title to props
-  img: string; // Added img to props
+  title: string;
+  img: string;
   options?: { title: string; additionalPrice: number }[];
 };
 
@@ -16,8 +16,8 @@ const Price = ({ price, id, title, img, options }: Props) => {
   const [total, setTotal] = useState(price);
   const [quantity, setQuantity] = useState(1);
   const [selected, setSelected] = useState(0);
-  const { addToCart } = useCart(); // Assuming addToCart is a function to update the cart
-  const router = useRouter(); // For navigation
+  const { addToCart } = useCart();
+  const router = useRouter();
 
   useEffect(() => {
     setTotal(
@@ -27,17 +27,15 @@ const Price = ({ price, id, title, img, options }: Props) => {
 
   const handleAddToCart = () => {
     if (typeof id === "number" && typeof price === "number") {
-      // Add to cart
       addToCart({
         id,
-        price: total, // Total price including quantity and options
+        price: total,
         quantity,
-        title, // Dynamically set the title
-        size: options ? options[selected].title : "Default Size", // Set size based on options
-        img, // Dynamically set the image
+        title,
+        size: options ? options[selected].title : "Default Size",
+        img,
       });
 
-      // Navigate to cart
       router.push("/cart");
     } else {
       console.error("Invalid id or price values");

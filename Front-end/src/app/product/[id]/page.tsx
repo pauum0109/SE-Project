@@ -1,28 +1,23 @@
 "use client";
 
-import { useParams } from "next/navigation"; // Correct hook to access dynamic route parameters
-import { featuredProducts, pizzas } from "@/data"; // Import data from your provided data.ts
+import { useParams } from "next/navigation";
+import { featuredProducts, pizzas } from "@/data";
 import Price from "@/components/Price";
 import Image from "next/image";
 import React from "react";
 
 const SingleProductPage = () => {
-  const { id } = useParams(); // Get the 'id' from the URL
+  const { id } = useParams();
 
-  // Validate the id and check if it's a number
   if (!id || Array.isArray(id)) {
-    return <p>Product ID is invalid</p>; // Handle invalid or array id
+    return <p>Product ID is invalid</p>;
   }
-
-  // Safely parse the id as a number
   const productId = parseInt(id);
 
-  // Combine the product lists (featuredProducts + pizzas)
   const product = [...featuredProducts, ...pizzas].find(
     (p) => p.id === productId
   );
 
-  // Handle case where product is not found
   if (!product) {
     return (
       <div>
@@ -41,7 +36,7 @@ const SingleProductPage = () => {
         <div className="relative w-full h-1/2 md:h-[70%]">
           <Image
             src={product.img}
-            alt={product.title || "Product image"} // Ensure alt text for accessibility
+            alt={product.title || "Product image"}
             className="object-contain"
             fill
           />
@@ -57,7 +52,7 @@ const SingleProductPage = () => {
         <Price
           price={product.price}
           id={product.id}
-          options={product.options || []} // Ensure options are passed as an array
+          options={product.options || []}
           product={{
             title: "",
             img: "",
