@@ -1,8 +1,11 @@
+"use client";
 import { featuredProducts } from "@/data";
 import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const Featured = () => {
+  const router = useRouter();
   return (
     <div className="w-screen overflow-x-scroll text-black">
       {/* WRAPPER */}
@@ -25,7 +28,10 @@ const Featured = () => {
                 {item.title}
               </h1>
               <span className="text-xl font-bold">${item.price}</span>
-              <button className="bg-[#ff6868] text-white p-2 rounded-md">
+              <button
+                className="bg-[#ff6868] text-white p-2 rounded-md"
+                onClick={() => router.push(`/product/${item.id}`)}
+              >
                 Add to Cart
               </button>
             </div>

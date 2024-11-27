@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useCart } from "@/context/CartContext"; // Assuming useCart is a custom hook for managing cart state
+import { useCart,CartProvider } from "@/context/CartContext"; // Assuming useCart is a custom hook for managing cart state
 
 type Props = {
   price: number;
@@ -13,10 +13,13 @@ type Props = {
 };
 
 const Price = ({ price, id, title, img, options }: Props) => {
+  
   const [total, setTotal] = useState(price);
   const [quantity, setQuantity] = useState(1);
   const [selected, setSelected] = useState(0);
-  const { addToCart } = useCart(); // Assuming addToCart is a function to update the cart
+
+  const { cart, addToCart, removeFromCart, clearCart } = useCart();
+ 
   const router = useRouter(); // For navigation
 
   useEffect(() => {
@@ -26,22 +29,31 @@ const Price = ({ price, id, title, img, options }: Props) => {
   }, [quantity, selected, options, price]);
 
   const handleAddToCart = () => {
+    
     if (typeof id === "number" && typeof price === "number") {
       // Add to cart
-      addToCart({
-        id,
-        price: total, // Total price including quantity and options
+      const newProduct = {
+        id: id.toString(),
+        price: total.toFixed(2), // Total price including quantity and options
         quantity,
         title, // Dynamically set the title
         size: options ? options[selected].title : "Default Size", // Set size based on options
         img, // Dynamically set the image
-      });
-
-      // Navigate to cart
-      router.push("/cart");
+      };
+      
+      addToCart(newProduct);
+      
+     
+      
+     
+        router.push("/cart");
+      
+     
     } else {
       console.error("Invalid id or price values");
     }
+   
+   
   };
 
   return (
