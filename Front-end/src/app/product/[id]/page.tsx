@@ -5,7 +5,6 @@ import { featuredProducts, pizzas } from "@/data"; // Import data from your prov
 import Price from "@/components/Price";
 import Image from "next/image";
 import React from "react";
-import { CartProvider } from "@/context/CartContext"; // Import the CartProvider
 
 const SingleProductPage = () => {
   const { id } = useParams(); // Get the 'id' from the URL
@@ -20,10 +19,9 @@ const SingleProductPage = () => {
 
   // Combine the product lists (featuredProducts + pizzas)
   const product = [...featuredProducts, ...pizzas].find(
-
     (p) => p.id === productId
   );
-  console.log(product);
+
   // Handle case where product is not found
   if (!product) {
     return (
@@ -56,23 +54,15 @@ const SingleProductPage = () => {
           {product.title}
         </h1>
         <p>{product.desc}</p>
-        {/* type Props = {
-          price: number;
-        id: number;
-        title: string; // Added title to props
-        img: string; // Added img to props
-        options?: {title: string; additionalPrice: number }[];
-        };  Here for reference */} 
-          <CartProvider>
         <Price
           price={product.price}
           id={product.id}
-          img={product.img || "/default-image.jpg"} // Pass a default image
           options={product.options || []} // Ensure options are passed as an array
-          title={product.title} // Pass the title
-
+          product={{
+            title: "",
+            img: "",
+          }}
         />
-        </CartProvider>
       </div>
     </div>
   );
