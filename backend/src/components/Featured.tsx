@@ -1,7 +1,7 @@
 import { ProductType } from "@/types/types";
 import Image from "next/image";
 import React from "react";
-
+import Link from "next/link";
 const getData = async ()=>{
   const res = await fetch("http://localhost:3000/api/products",{
     cache:"no-store"
@@ -39,9 +39,11 @@ const Featured = async() => {
                 {item.title}
               </h1>
               <span className="text-xl font-bold">${item.price}</span>
-              <button className="bg-[#ff6868] text-white p-2 rounded-md">
+              <Link  href={`/product/${item.id}`} key={item.id}>
+              <button className="bg-[#ff6868] text-white p-2 rounded-md" >
                 Add to Cart
               </button>
+            </Link>
             </div>
           </div>
         ))}
