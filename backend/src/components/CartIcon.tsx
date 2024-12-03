@@ -34,7 +34,7 @@ const CartIcon = () => {
             Add product
           </button>
         ) : (
-          <span>Cart ({totalItems-207})</span>
+          <span>Cart ({totalItems})</span>
         )}
       </div>
     </Link>
