@@ -11,6 +11,7 @@ const CartPage = () => {
   const router = useRouter();
 
   useEffect(() => {
+    localStorage.removeItem("cart");
     useCartStore.persist.rehydrate();
   }, []);
 
